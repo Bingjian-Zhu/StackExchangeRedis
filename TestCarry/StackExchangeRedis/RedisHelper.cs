@@ -356,7 +356,8 @@ namespace TestCarry.StackExchangeRedis
                 key = AddSysCustomKey(key);
                 return Do(db =>
                 {
-                    RedisValue[] values = db.HashKeys(key);
+                    //RedisValue[] values = db.HashKeys(key);
+                    RedisValue[] values = db.HashKeys(key).ToArray();
                     return ConvetList<T>(values);
                 });
             }

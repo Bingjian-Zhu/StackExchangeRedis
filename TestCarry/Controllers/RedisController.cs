@@ -67,5 +67,13 @@ namespace TestCarry.Controllers
             var res = redis.HashGet<User>(key, dataKey);
             return Ok(res);
         }
+
+        [HttpGet("GetHashs")]
+        public IActionResult GetHashs(string key)
+        {
+            RedisHelper redis = new RedisHelper();
+            var res = redis.HashKeys<User>(key);
+            return Ok(res);
+        }
     }
 }
